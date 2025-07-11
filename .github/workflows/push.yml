@@ -5,9 +5,6 @@ on:
     branches:
       - 'main'
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   Deploy:
     runs-on: 'ubuntu-latest'
@@ -33,4 +30,6 @@ jobs:
       - name: 'Build'
         run: 'yarn build'
       - name: 'Deploy'
-        run: 'yarn deploy -- --repo "https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/user/repo.git"'
+        run: |
+          yarn deploy -- \
+          --repo "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"

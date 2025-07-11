@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# yauheni-shcharbakou.github.io
 
-## Getting Started
+Website
 
-First, run the development server:
+## Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 22+
+- Installed yarn 1.22.22
+
+## Environment variables
+
+Deployment uses `GITHUB_CI` and `CI` variables for check is it a CI. If it's CI - build will be in `export` mode.
+
+Place variables in `.env` file at the root of repository
+
+- 
+
+## Installation
+
+Clone the repository
+
+```shell
+git clone git@github.com:yauheni-shcharbakou/yauheni-shcharbakou.github.io.git // via SSH
+git clone https://github.com/yauheni-shcharbakou/yauheni-shcharbakou.github.io.git via HTTPS
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the repository folder
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd yauheni-shcharbakou.github.io
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies
 
-## Learn More
+```bash
+yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For run in development mode:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```shell
+yarn dev
+```
 
-## Deploy on Vercel
+Build project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```shell
+yarn build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For run in production mode (need to build before):
+
+```shell
+yarn start
+```
+
+Lint with eslint:
+
+```shell
+yarn lint
+```
+
+## Deployment
+
+For deploy app to GitHub Pages run:
+
+```shell
+yarn deploy
+```
+
+[Deployment link](https://yauheni-shcharbakou.github.io)

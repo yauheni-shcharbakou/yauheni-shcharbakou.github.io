@@ -9,6 +9,9 @@ jobs:
   Deploy:
     runs-on: 'ubuntu-latest'
 
+    permissions:
+      contents: write
+
     steps:
       - name: 'Load repository code'
         uses: 'actions/checkout@v4'

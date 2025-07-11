@@ -1,0 +1,33 @@
+name: 'Push'
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  Deploy:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: 'Load repository code'
+        uses: 'actions/checkout@v4'
+      - name: 'Setup git'
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git config pull.rebase true
+      - name: 'Setup node.js'
+        uses: 'actions/setup-node@v4'
+        with:
+          node-version: 22
+      - name: 'Install yarn'
+        run: 'npm install -g yarn@1.22.22'
+      - name: 'Install dependencies'
+        run: 'yarn install'
+      - name: 'Run linter'
+        run: 'yarn lint'
+      - name: 'Build'
+        run: 'yarn build'
+      - name: 'Deploy'
+        run: 'yarn deploy'

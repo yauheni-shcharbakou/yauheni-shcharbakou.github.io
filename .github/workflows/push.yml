@@ -33,6 +33,6 @@ jobs:
       - name: 'Build'
         run: 'yarn build'
       - name: 'Deploy'
-        run: |
-          yarn deploy -- \
+        run: >
+          yarn deploy
           --repo "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
